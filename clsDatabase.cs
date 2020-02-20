@@ -272,7 +272,7 @@ namespace Project1_Chad_Jsaicki
         }
 
         //***** DeleteProduct()
-        public static Int32 DeleteProduct(String strProdID)
+        public static Int32 DeleteTech(String strTechID)
         {
             SqlConnection cnSQL;
             SqlCommand cmdSQL;
@@ -289,11 +289,11 @@ namespace Project1_Chad_Jsaicki
                 cmdSQL = new SqlCommand();
                 cmdSQL.Connection = cnSQL;
                 cmdSQL.CommandType = CommandType.StoredProcedure;
-                cmdSQL.CommandText = "uspDeleteProduct";
+                cmdSQL.CommandText = "uspDeleteTechnician";
 
-                cmdSQL.Parameters.Add(new SqlParameter("@ProductID", SqlDbType.NVarChar, 10));
-                cmdSQL.Parameters["@ProductID"].Direction = ParameterDirection.Input;
-                cmdSQL.Parameters["@ProductID"].Value = strProdID;
+                cmdSQL.Parameters.Add(new SqlParameter("@TechnicianID", SqlDbType.NVarChar, 10));
+                cmdSQL.Parameters["@TechnicianID"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@TechnicianID"].Value = strTechID;
 
                 cmdSQL.Parameters.Add(new SqlParameter("@ErrCode", SqlDbType.Int));
                 cmdSQL.Parameters["@ErrCode"].Direction = ParameterDirection.ReturnValue;
@@ -442,14 +442,14 @@ namespace Project1_Chad_Jsaicki
                 return dsSQL;
             }
         }
-        //***INsertServiceEvent()
-        public static Int32 InsertServiceEvent(Int32 intClientID, DateTime dtEventDate, String strPhone, String strContact)
+        //***INsertServiceEvent()   
+        public static Int32 InsertTech(string strLName, string strFName, string strMidIni, string strEmail, string strDept, Int32 intPhone, Decimal decRate)
         {
             SqlConnection cnSQL;
             SqlCommand cmdSQL;
             Boolean blnErrorOccurred = false;
             Int32 intRetCode;
-            Int32 intNewTicket = 0;
+            Int32 intNewTech = 0;
 
             cnSQL = AcquireConnection();
             if (cnSQL == null)
@@ -461,26 +461,39 @@ namespace Project1_Chad_Jsaicki
                 cmdSQL = new SqlCommand();
                 cmdSQL.Connection = cnSQL;
                 cmdSQL.CommandType = CommandType.StoredProcedure;
-                cmdSQL.CommandText = "uspInsertServiceEvent";
+                cmdSQL.CommandText = "uspInsertTechnician";
 
-                cmdSQL.Parameters.Add(new SqlParameter("@ClientID", SqlDbType.Int));
-                cmdSQL.Parameters["@ClientID"].Direction = ParameterDirection.Input;
-                cmdSQL.Parameters["@ClientID"].Value = intClientID;
+                cmdSQL.Parameters.Add(new SqlParameter("@LName", SqlDbType.NVarChar, 30));
+                cmdSQL.Parameters["@LName"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@LName"].Value = strLName;
 
-                cmdSQL.Parameters.Add(new SqlParameter("@EventDate", SqlDbType.DateTime));
-                cmdSQL.Parameters["@EventDate"].Direction = ParameterDirection.Input;
-                cmdSQL.Parameters["@EventDate"].Value = dtEventDate;
+                cmdSQL.Parameters.Add(new SqlParameter("@FName", SqlDbType.NVarChar, 20));
+                cmdSQL.Parameters["@FName"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@FName"].Value = strFName;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@MInit", SqlDbType.NChar, 1));
+                cmdSQL.Parameters["@MInit"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@MInit"].Value = strMidIni;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@EMail", SqlDbType.NVarChar, 50));
+                cmdSQL.Parameters["@EMail"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@EMail"].Value = strEmail;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@Dept", SqlDbType.NVarChar, 25));
+                cmdSQL.Parameters["@Dept"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@Dept"].Value = strDept;
 
                 cmdSQL.Parameters.Add(new SqlParameter("@Phone", SqlDbType.NChar, 10));
                 cmdSQL.Parameters["@Phone"].Direction = ParameterDirection.Input;
-                cmdSQL.Parameters["@Phone"].Value = strPhone;
+                cmdSQL.Parameters["@Phone"].Value = intPhone;
 
-                cmdSQL.Parameters.Add(new SqlParameter("@Contact", SqlDbType.NVarChar, 30));
-                cmdSQL.Parameters["@Contact"].Direction = ParameterDirection.Input;
-                cmdSQL.Parameters["@Contact"].Value = strContact;
+                cmdSQL.Parameters.Add(new SqlParameter("@HRate", SqlDbType.Money));
+                cmdSQL.Parameters["@HRate"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@HRate"].Value = decRate;
 
-                cmdSQL.Parameters.Add(new SqlParameter("@NewTicketID", SqlDbType.Int));
-                cmdSQL.Parameters["@NewTicketID"].Direction = ParameterDirection.Output;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@NewTechnicianID", SqlDbType.Int));
+                cmdSQL.Parameters["@NewTechnicianID"].Direction = ParameterDirection.Output;
 
                 cmdSQL.Parameters.Add(new SqlParameter("@ErrCode", SqlDbType.Int));
                 cmdSQL.Parameters["@ErrCode"].Direction = ParameterDirection.ReturnValue;
@@ -503,7 +516,7 @@ namespace Project1_Chad_Jsaicki
                 {
                     try
                     {
-                        intNewTicket = Convert.ToInt32(cmdSQL.Parameters["@NewTicketID"].Value);
+                        intNewTech = Convert.ToInt32(cmdSQL.Parameters["@NewTechnicianID"].Value);
                     }
                     catch (Exception ex)
                     {
@@ -520,7 +533,7 @@ namespace Project1_Chad_Jsaicki
             }
             else
             {
-                return intNewTicket;
+                return intNewTech;
             }
         }
     }
