@@ -6,7 +6,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
-
+// test
 namespace Project1_Chad_Jsaicki
 {
     public class clsDatabase
