@@ -6,7 +6,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
-// test
+
 namespace Project1_Chad_Jsaicki
 {
     public class clsDatabase
@@ -364,39 +364,40 @@ namespace Project1_Chad_Jsaicki
                 cmdSQL.Parameters["@FName"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@FName"].Value = strFName;
 
+                cmdSQL.Parameters.Add(new SqlParameter("@MInit", SqlDbType.NChar, 1));
+                cmdSQL.Parameters["@MInit"].Direction = ParameterDirection.Input;
                 if (string.IsNullOrWhiteSpace(strMidIni))
                 {
-                    cmdSQL.Parameters.Add(new SqlParameter("@MInit", DBNull.Value));
+                    cmdSQL.Parameters["@MInit"].Value = DBNull.Value;
                 }
                 else
                 {
-                    cmdSQL.Parameters.Add(new SqlParameter("@MInit", SqlDbType.NChar, 1));
+                    cmdSQL.Parameters["@MInit"].Value = strMidIni;
                 }
-                cmdSQL.Parameters["@MInit"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@MInit"].Value = strMidIni;
 
+                cmdSQL.Parameters.Add(new SqlParameter("@EMail", SqlDbType.NVarChar, 50));
+                cmdSQL.Parameters["@EMail"].Direction = ParameterDirection.Input;
                 if (string.IsNullOrWhiteSpace(strEmail))
                 {
-                    cmdSQL.Parameters.Add(new SqlParameter("@EMail", DBNull.Value));
+                    cmdSQL.Parameters["@EMail"].Value = DBNull.Value;
                 }
                 else
                 {
-                    cmdSQL.Parameters.Add(new SqlParameter("@EMail", SqlDbType.NVarChar, 50));
+                    cmdSQL.Parameters["@EMail"].Value = strEmail;
                 }
-                cmdSQL.Parameters["@EMail"].Direction = ParameterDirection.Input;
-                cmdSQL.Parameters["@EMail"].Value = strEmail;
-
+                
+                cmdSQL.Parameters.Add(new SqlParameter("@Dept", SqlDbType.NVarChar, 25));
+                cmdSQL.Parameters["@Dept"].Direction = ParameterDirection.Input;
                 if (string.IsNullOrWhiteSpace(strDept))
                 {
-                    cmdSQL.Parameters.Add(new SqlParameter("@Dept", DBNull.Value));
+                    cmdSQL.Parameters["@Dept"].Value = DBNull.Value;
                 }
                 else
                 {
-                    cmdSQL.Parameters.Add(new SqlParameter("@Dept", SqlDbType.NVarChar, 25));
+                    cmdSQL.Parameters["@Dept"].Value = strDept;
                 }
-                cmdSQL.Parameters["@Dept"].Direction = ParameterDirection.Input;
-                cmdSQL.Parameters["@Dept"].Value = strDept;
-
+               
                 cmdSQL.Parameters.Add(new SqlParameter("@Phone", SqlDbType.NChar, 10));
                 cmdSQL.Parameters["@Phone"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@Phone"].Value = intPhone;
@@ -482,38 +483,39 @@ namespace Project1_Chad_Jsaicki
                 cmdSQL.Parameters["@FName"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@FName"].Value = strFName;
 
+                cmdSQL.Parameters.Add(new SqlParameter("@MInit", SqlDbType.NChar, 1));
+                cmdSQL.Parameters["@MInit"].Direction = ParameterDirection.Input;
                 if (string.IsNullOrWhiteSpace(strMidIni))
                 {
-                    cmdSQL.Parameters.Add(new SqlParameter("@MInit", DBNull.Value));
+                    cmdSQL.Parameters["@MInit"].Value = DBNull.Value;
                 }
                 else
                 {
-                    cmdSQL.Parameters.Add(new SqlParameter("@MInit", SqlDbType.NChar, 1));
+                    cmdSQL.Parameters["@MInit"].Value = strMidIni;
                 }
-                cmdSQL.Parameters["@MInit"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@MInit"].Value = strMidIni;
 
+                cmdSQL.Parameters.Add(new SqlParameter("@EMail", SqlDbType.NVarChar, 50));
+                cmdSQL.Parameters["@EMail"].Direction = ParameterDirection.Input;
                 if (string.IsNullOrWhiteSpace(strEmail))
                 {
-                    cmdSQL.Parameters.Add(new SqlParameter("@EMail", DBNull.Value));
+                    cmdSQL.Parameters["@EMail"].Value = DBNull.Value;
                 }
                 else
                 {
-                    cmdSQL.Parameters.Add(new SqlParameter("@EMail", SqlDbType.NVarChar, 50));
+                    cmdSQL.Parameters["@EMail"].Value = strEmail;
                 }
-                cmdSQL.Parameters["@EMail"].Direction = ParameterDirection.Input;
-                cmdSQL.Parameters["@EMail"].Value = strEmail;
 
+                cmdSQL.Parameters.Add(new SqlParameter("@Dept", SqlDbType.NVarChar, 25));
+                cmdSQL.Parameters["@Dept"].Direction = ParameterDirection.Input;
                 if (string.IsNullOrWhiteSpace(strDept))
                 {
-                    cmdSQL.Parameters.Add(new SqlParameter("@Dept", DBNull.Value));
+                    cmdSQL.Parameters["@Dept"].Value = DBNull.Value;
                 }
                 else
                 {
-                    cmdSQL.Parameters.Add(new SqlParameter("@Dept", SqlDbType.NVarChar, 25));
+                    cmdSQL.Parameters["@Dept"].Value = strDept;
                 }
-                cmdSQL.Parameters["@Dept"].Direction = ParameterDirection.Input;
-                cmdSQL.Parameters["@Dept"].Value = strDept;
 
                 cmdSQL.Parameters.Add(new SqlParameter("@Phone", SqlDbType.NChar, 10));
                 cmdSQL.Parameters["@Phone"].Direction = ParameterDirection.Input;

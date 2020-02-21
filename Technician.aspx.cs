@@ -301,7 +301,7 @@ namespace Project1_Chad_Jsaicki
                 {
                     lblError.Text = "";
                     blErrState = false;
-                    if (txtPhone.Text.Length != 10)
+                    if (txtPhone.Text.Length != 10 && !txtPhone.Text.StartsWith("0"))
                     {
                         lblError.Text = "Phone Number Must have 10 digits and can't be Null!!!";
                         txtPhone.Focus();
