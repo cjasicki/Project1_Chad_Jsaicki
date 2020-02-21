@@ -47,7 +47,6 @@ namespace Project1_Chad_Jsaicki
                 drpTech.DataValueField = "TechnicianID";
                 drpTech.Items.Add(new ListItem("--Select Technician--", "0"));
                 drpTech.DataBind();
-
                 dsData.Dispose();
             }
         }
@@ -78,7 +77,6 @@ namespace Project1_Chad_Jsaicki
             if (x == 0)
             {
                 FormDefault();
-
             }
             else
             {
@@ -168,7 +166,6 @@ namespace Project1_Chad_Jsaicki
                 {
                     txtRate.Text = dsData.Tables[0].Rows[0]["HRate"].ToString();
                 }
-
                 dsData.Dispose();
             }
         }
@@ -184,7 +181,6 @@ namespace Project1_Chad_Jsaicki
             this.drpTech.SelectedValue = "0";
             this.drpTech.Enabled = false;
             this.txtFName.Focus();
-
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
@@ -204,15 +200,14 @@ namespace Project1_Chad_Jsaicki
 
         protected void btnAccept_Click(object sender, EventArgs e)
         {
-            ValidationData();
+            DataVal();
         }
-        private void ValidationData()
+        private void DataVal()
         {
             Boolean blErrState = false;
             Int32 intNewTech;
             Int32 UpdateTech;
             lblError.Text = "";
-
             string strFName = txtFName.Text;
             string strMidIni = txtMInitial.Text;
             string strLName = txtLName.Text;
@@ -234,7 +229,6 @@ namespace Project1_Chad_Jsaicki
 
             if (!blErrState)
             {
-
                 int intMidIni = strMidIni.Length;
                 if (intMidIni < 2)
                 {
@@ -325,15 +319,12 @@ namespace Project1_Chad_Jsaicki
                                 lblError.Text = "Rate can't be 0!!!";
                                 blErrState = true;
                                 txtRate.Focus();
-
                             }
                             else
                             {
-
                                 blErrState = false;
                                 lblError.Text = "";
                             }
-
                         }
                         else
                         {
@@ -341,7 +332,6 @@ namespace Project1_Chad_Jsaicki
                             txtRate.Focus();
                             blErrState = true;
                         }
-
                     }
                 }
                 else
