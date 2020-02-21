@@ -364,15 +364,36 @@ namespace Project1_Chad_Jsaicki
                 cmdSQL.Parameters["@FName"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@FName"].Value = strFName;
 
-                cmdSQL.Parameters.Add(new SqlParameter("@MInit", SqlDbType.NChar, 1));
+                if (string.IsNullOrWhiteSpace(strMidIni))
+                {
+                    cmdSQL.Parameters.Add(new SqlParameter("@MInit", DBNull.Value));
+                }
+                else
+                {
+                    cmdSQL.Parameters.Add(new SqlParameter("@MInit", SqlDbType.NChar, 1));
+                }
                 cmdSQL.Parameters["@MInit"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@MInit"].Value = strMidIni;
 
-                cmdSQL.Parameters.Add(new SqlParameter("@EMail", SqlDbType.NVarChar, 50));
+                if (string.IsNullOrWhiteSpace(strEmail))
+                {
+                    cmdSQL.Parameters.Add(new SqlParameter("@EMail", DBNull.Value));
+                }
+                else
+                {
+                    cmdSQL.Parameters.Add(new SqlParameter("@EMail", SqlDbType.NVarChar, 50));
+                }
                 cmdSQL.Parameters["@EMail"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@EMail"].Value = strEmail;
 
-                cmdSQL.Parameters.Add(new SqlParameter("@Dept", SqlDbType.NVarChar, 25));
+                if (string.IsNullOrWhiteSpace(strDept))
+                {
+                    cmdSQL.Parameters.Add(new SqlParameter("@Dept", DBNull.Value));
+                }
+                else
+                {
+                    cmdSQL.Parameters.Add(new SqlParameter("@Dept", SqlDbType.NVarChar, 25));
+                }
                 cmdSQL.Parameters["@Dept"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@Dept"].Value = strDept;
 
@@ -383,7 +404,6 @@ namespace Project1_Chad_Jsaicki
                 cmdSQL.Parameters.Add(new SqlParameter("@HRate", SqlDbType.Money));
                 cmdSQL.Parameters["@HRate"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@HRate"].Value = decRate;
-
 
                 cmdSQL.Parameters.Add(new SqlParameter("@NewTechnicianID", SqlDbType.Int));
                 cmdSQL.Parameters["@NewTechnicianID"].Direction = ParameterDirection.Output;
@@ -462,15 +482,36 @@ namespace Project1_Chad_Jsaicki
                 cmdSQL.Parameters["@FName"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@FName"].Value = strFName;
 
-                cmdSQL.Parameters.Add(new SqlParameter("@MInit", SqlDbType.NChar, 1));
+                if (string.IsNullOrWhiteSpace(strMidIni))
+                {
+                    cmdSQL.Parameters.Add(new SqlParameter("@MInit", DBNull.Value));
+                }
+                else
+                {
+                    cmdSQL.Parameters.Add(new SqlParameter("@MInit", SqlDbType.NChar, 1));
+                }
                 cmdSQL.Parameters["@MInit"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@MInit"].Value = strMidIni;
 
-                cmdSQL.Parameters.Add(new SqlParameter("@EMail", SqlDbType.NVarChar, 50));
+                if (string.IsNullOrWhiteSpace(strEmail))
+                {
+                    cmdSQL.Parameters.Add(new SqlParameter("@EMail", DBNull.Value));
+                }
+                else
+                {
+                    cmdSQL.Parameters.Add(new SqlParameter("@EMail", SqlDbType.NVarChar, 50));
+                }
                 cmdSQL.Parameters["@EMail"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@EMail"].Value = strEmail;
 
-                cmdSQL.Parameters.Add(new SqlParameter("@Dept", SqlDbType.NVarChar, 25));
+                if (string.IsNullOrWhiteSpace(strDept))
+                {
+                    cmdSQL.Parameters.Add(new SqlParameter("@Dept", DBNull.Value));
+                }
+                else
+                {
+                    cmdSQL.Parameters.Add(new SqlParameter("@Dept", SqlDbType.NVarChar, 25));
+                }
                 cmdSQL.Parameters["@Dept"].Direction = ParameterDirection.Input;
                 cmdSQL.Parameters["@Dept"].Value = strDept;
 

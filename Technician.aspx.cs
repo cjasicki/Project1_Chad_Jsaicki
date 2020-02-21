@@ -88,6 +88,7 @@ namespace Project1_Chad_Jsaicki
                 this.btnClear.Enabled = true;
                 this.btnNewTech.Enabled = false;
                 DisplayTechInfo(drpTech.SelectedValue.ToString());
+                lblError.Text = "";
             }
         }
         private void DisplayTechInfo(String strProdID)
@@ -198,191 +199,193 @@ namespace Project1_Chad_Jsaicki
             this.btnRemove.Enabled = false;
             this.btnClear.Enabled = false;
             this.btnNewTech.Enabled = true;
+            this.drpTech.Enabled = true;
         }
 
         protected void btnAccept_Click(object sender, EventArgs e)
         {
-                Boolean blErrState = false;
-                Int32 intNewTech;
-                Int32 UpdateTech;
-                lblError.Text = "";
+            ValidationData();
+        }
+        private void ValidationData()
+        {
+            Boolean blErrState = false;
+            Int32 intNewTech;
+            Int32 UpdateTech;
+            lblError.Text = "";
 
-                string strFName = txtFName.Text;
-                string strMidIni = txtMInitial.Text;
-                string strLName = txtLName.Text;
-                string strEmail = txtEMail.Text;
-                string strDept = txtDept.Text;
+            string strFName = txtFName.Text;
+            string strMidIni = txtMInitial.Text;
+            string strLName = txtLName.Text;
+            string strEmail = txtEMail.Text;
+            string strDept = txtDept.Text;
+            Int64 intPhone = 0;
+            decimal decRate = 0;
+            int intFName = strFName.Length;
+            if (intFName >= 2 && intFName < 20)
+            {
+                blErrState = false;
+            }
+            else
+            {
+                blErrState = true;
+                txtFName.Focus();
+                lblError.Text = "First Name not valid, Can't be null and has to have 2 to 20 character!!!";
+            }
 
-                int intFName = strFName.Length;
-                if (intFName >= 2 && intFName < 20)
+            if (!blErrState)
+            {
+
+                int intMidIni = strMidIni.Length;
+                if (intMidIni < 2)
                 {
                     blErrState = false;
+                    lblError.Text = "";
                 }
                 else
                 {
                     blErrState = true;
-                    txtFName.Focus();
-                    lblError.Text = "First Name not valid, Can't be null and has to have 2 to 20 character!!!";
+                    txtMInitial.Focus();
+                    lblError.Text = "Invalid Data, middle can only be 1 characters";
                 }
-
-                if (!blErrState)
+            }
+            if (!blErrState)
+            {
+                int intLName = strLName.Length;
+                if (intLName >= 3 && intLName < 30)
                 {
+                    blErrState = false;
+                    lblError.Text = "";
+                }
+                else
+                {
+                    blErrState = true;
+                    txtLName.Focus();
+                    lblError.Text = "Invalid Data, Last Name Can't be null and has to have 3 to 30 character!!!";
+                }
+            }
 
-                    int intMidIni = strMidIni.Length;
-                    if (intMidIni < 2 )
+            if (!blErrState)
+            {
+                int intEmail = strEmail.Length;
+                if (intEmail >= 5 && intEmail < 50)
+                {
+                    if (strEmail is null)
+                    {
+                        blErrState = false;
+                        lblError.Text = strEmail;
+                    }
+                }
+                else
+                {
+                    blErrState = true;
+                    txtEMail.Focus();
+                    lblError.Text = "Invalid Data, Email Address must have between 5-50 characters";
+                }
+            }
+            if (!blErrState)
+            {
+                int intDept = strDept.Length;
+                if (intDept >= 2 && intDept < 25)
+                {
+                    if (strDept is null)
                     {
                         blErrState = false;
                         lblError.Text = "";
                     }
-                    else
-                    {
-                        blErrState = true;
-                        txtMInitial.Focus();
-                        lblError.Text = "Invalid Data, middle can only be 1 characters";
-                    }
                 }
-                if (!blErrState)
+                else
                 {
-                    int intLName = strLName.Length;
-                    if (intLName >= 3 && intLName < 30)
-                    {
-                        blErrState = false;
-                        lblError.Text = "";
-                    }
-                    else
-                    {
-                        blErrState = true;
-                        txtLName.Focus();
-                        lblError.Text = "Invalid Data, Last Name Can't be null and has to have 3 to 30 character!!!";
-                    }
+                    blErrState = true;
+                    txtDept.Focus();
+                    lblError.Text = "Invalid Data, Dept must have between 2-25 characters";
                 }
+            }
 
-                if (!blErrState)
+            if (!blErrState)
+            {
+                if (Int64.TryParse(txtPhone.Text, out intPhone))
                 {
-                    int intEmail = strEmail.Length;
-                    if (intEmail >= 5 && intEmail < 50)
+                    lblError.Text = "";
+                    blErrState = false;
+                    if (txtPhone.Text.Length != 10)
                     {
-                        if (strEmail is null)
-                        {
-                            blErrState = false;
-                            lblError.Text = strEmail;
-                        }
+                        lblError.Text = "Phone Number Must have 10 digits and can't be Null!!!";
+                        txtPhone.Focus();
+                        blErrState = true;
                     }
                     else
-                    {
-                        blErrState = true;
-                        txtEMail.Focus();
-                        lblError.Text = "Invalid Data, Email Address must have between 5-50 characters";
-                    }
-                }
-                if (!blErrState)
-                {
-                    int intDept = strDept.Length;
-                    if (intDept >= 2 && intDept < 25)
-                    {
-                        if (strDept is null)
-                        {
-                            blErrState = false;
-                            lblError.Text = "";
-                        }
-                    }
-                    else
-                    {
-                        blErrState = true;
-                        txtDept.Focus();
-                        lblError.Text = "Invalid Data, Dept must have between 2-25 characters";
-                    }
-                }
-
-                if (!blErrState)
-                {
-                    if (Int64.TryParse(txtPhone.Text, out Int64 intPhone))
                     {
                         lblError.Text = "";
                         blErrState = false;
-                        int intPhonelen = txtPhone.Text.Length;
-                        if (intPhonelen != 10)
+                        if (Decimal.TryParse(txtRate.Text, out decRate))
                         {
-                            lblError.Text = "Phone Number Must have 10 digits and can't be Null!!!";
-                            txtPhone.Focus();
-                            blErrState = true;
-                        }
-                        else
-                        {
-                            lblError.Text = "";
-                            blErrState = false;
-                            if (Decimal.TryParse(txtRate.Text, out decimal decRate))
+                            Decimal decRate1 = decRate;
+                            if (decRate < 0)
                             {
-                                Decimal decRate1 = decRate;
-                                if (decRate == 0)
-                                {
-                                    lblError.Text = "Rate can't be 0!!!";
-                                    blErrState = true;
-                                    txtRate.Focus();
-
-                                }
-                                else
-                                {
-
-                                    blErrState = false;
-                                    lblError.Text = "";
-                                }
+                                lblError.Text = "Rate can't be 0!!!";
+                                blErrState = true;
+                                txtRate.Focus();
 
                             }
                             else
                             {
-                                lblError.Text = "Rate can't be null and can only contain Number!!!";
-                                txtRate.Focus();
-                                blErrState = true;
+
+                                blErrState = false;
+                                lblError.Text = "";
                             }
 
                         }
+                        else
+                        {
+                            lblError.Text = "Rate can't be null and can only contain Number!!!";
+                            txtRate.Focus();
+                            blErrState = true;
+                        }
+
+                    }
+                }
+                else
+                {
+                    lblError.Text = "Phone Number can only contain Numbers!!!";
+                    txtPhone.Focus();
+                    blErrState = true;
+                }
+            }
+
+            if (!blErrState)
+            {
+                if (drpTech.SelectedValue != "0")
+                {
+                    Int32 intTechID = Convert.ToInt32(drpTech.SelectedValue.ToString());
+
+                    UpdateTech = clsDatabase.SQLUpdateTech(intTechID, strLName, strFName, strMidIni, strEmail, strDept, intPhone, decRate);
+
+                    if (UpdateTech == 0)
+                    {
+                        lblError.Text = "Tech ID " + drpTech.SelectedItem.ToString() + " was updated";
+                        FormDefault();
                     }
                     else
                     {
-                        lblError.Text = "Phone Number can only contain Numbers!!!";
-                        txtPhone.Focus();
-                        blErrState = true;
+                        lblError.Text = "Error updating Tech record";
                     }
                 }
-
-            if (drpTech.SelectedValue != "0")
-            {
-                Int32 intTechID = Convert.ToInt32(drpTech.SelectedValue.ToString());
-
-                Int64.TryParse(txtPhone.Text, out Int64 intPhoneA);
-                Decimal.TryParse(txtRate.Text, out decimal decRateA);
-                UpdateTech = clsDatabase.SQLUpdateTech(intTechID, strLName, strFName, strMidIni, strEmail, strDept, intPhoneA, decRateA);
-
-                if (UpdateTech > 0)
-                {
-                    lblError.Text = "Tech ID " + UpdateTech.ToString() + " was updated";
-                    FormDefault();
-                }
                 else
                 {
-                    lblError.Text = "Error updating Tech record";
-                }
-            }
-            else
-            {
-                Int64.TryParse(txtPhone.Text, out Int64 intPhoneA);
-                Decimal.TryParse(txtRate.Text, out decimal decRateA);
-                intNewTech = clsDatabase.InsertTech(strLName, strFName, strMidIni, strEmail, strDept, intPhoneA, decRateA);
+                    intNewTech = clsDatabase.InsertTech(strLName, strFName, strMidIni, strEmail, strDept, intPhone, decRate);
 
-                if (intNewTech > 0)
-                {
-                    lblError.Text = "Tech ID " + intNewTech.ToString() + " was added";
-                    FormDefault();
+                    if (intNewTech > 0)
+                    {
+                        lblError.Text = "New tech was added";
+                        FormDefault();
+                    }
+                    else
+                    {
+                        lblError.Text = "Error addinig Tech record";
+                    }
                 }
-                else
-                {
-                    lblError.Text = "Error addinig Tech record";
-                }
-
             }
         }
-
         protected void btnRemove_Click(object sender, EventArgs e)
         {
             int intTest = clsDatabase.DeleteTech(drpTech.SelectedValue.ToString());

@@ -12,21 +12,21 @@
             <asp:Label ID="lblHRate" runat="server" Font-Bold="True" style="z-index: 1; left: 39px; top: 464px; position: absolute" Text="* Hourly Rate:"></asp:Label>
             <asp:Button ID="btnClear" runat="server" style="z-index: 1; left: 425px; top: 567px; position: absolute; height: 50px; width: 111px" Text="Clear" Enabled="False" Font-Bold="True" OnClick="btnClear_Click" TabIndex="12" />
             <asp:Button ID="btnCancel" runat="server" Enabled="False" style="z-index: 1; left: 162px; top: 567px; position: absolute; absolute; height: 50px;width: 110px" Text="Cancel" Font-Bold="True" OnClick="btnCancel_Click" TabIndex="10" />
-            <asp:Button ID="btnAccept" runat="server" Enabled="False" style="z-index: 1; left: 35px; top: 568px; position: absolute; absolute; height: 50px;width: 110px" Text="Accept" Font-Bold="True" OnClick="btnAccept_Click" TabIndex="9" />
+            <asp:Button ID="btnAccept" runat="server" Enabled="False" style="z-index: 1; left: 22px; top: 568px; position: absolute; absolute; height: 50px;width: 110px" Text="Accept" Font-Bold="True" OnClick="btnAccept_Click" TabIndex="9" />
             <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" style="z-index: 1; left: 29px; top: 111px; position: absolute; height: 50px; width: 256px;" Text="Return to MainMenu" Font-Bold="True" Font-Size="Large" TabIndex="14" />
             <asp:Button ID="btnReturn0" runat="server" OnClick="btnReturn_Click" style="z-index: 1; left: 29px; top: 111px; position: absolute; height: 50px; width: 256px; bottom: 541px;" Text="Return to MainMenu" Font-Bold="True" Font-Size="Large" />
             <asp:Button ID="btnRemove" runat="server" Enabled="False" style="z-index: 1; left: 291px; top: 567px; position: absolute; width: 110px; right: 653px; height: 50px; margin-top: 0px" Text="Remove" Font-Bold="True" OnClick="btnRemove_Click" TabIndex="11" />
-            <asp:Label ID="lblLName" runat="server" Font-Bold="True" style="z-index: 1; left: 49px; top: 307px; position: absolute" Text="* Last Name:"></asp:Label>
-            <asp:Label ID="lblReqFields" runat="server" ForeColor="Red" style="z-index: 1; left: 22px; top: 513px; position: absolute; width: 261px" Text="* indicate required fields"></asp:Label>
-            <asp:Label ID="lblError" runat="server" ForeColor="Red" style="z-index: 1; left: 18px; top: 625px; position: absolute; margin-top: 0px" Text="(Error Message)"></asp:Label>
+            <asp:Label ID="lblLName" runat="server" Font-Bold="True" style="z-index: 1; left: 52px; top: 307px; position: absolute" Text="* Last Name:"></asp:Label>
+            <asp:Label ID="lblReqFields" runat="server" ForeColor="Red" style="z-index: 1; left: 22px; top: 509px; position: absolute; width: 261px" Text="* indicate required fields"></asp:Label>
+            <asp:Label ID="lblError" runat="server" ForeColor="Red" style="z-index: 1; left: 53px; top: 538px; position: absolute; margin-top: 0px" Text="(Error Message)"></asp:Label>
             <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Arial Rounded MT Bold" Font-Size="XX-Large" style="z-index: 1; left: 118px; top: 35px; position: absolute; margin-top: 6px; margin-bottom: 0px" Text="Technician Maintenance"></asp:Label>
-            <asp:Label ID="lblPhone" runat="server" Font-Bold="True" style="z-index: 1; left: 91px; top: 428px; position: absolute; height: 22px" Text="* Phone:"></asp:Label>
+            <asp:Label ID="lblPhone" runat="server" Font-Bold="True" style="z-index: 1; left: 95px; top: 428px; position: absolute; height: 22px" Text="* Phone:"></asp:Label>
             <asp:TextBox ID="txtPhone" runat="server" style="z-index: 1; left: 173px; top: 429px; position: absolute" TabIndex="7"></asp:TextBox>
-            <asp:Label ID="lblDept" runat="server" Font-Bold="True" style="z-index: 1; left: 58px; top: 387px; position: absolute; right: 899px" Text="Department:"></asp:Label>
-            <asp:Label ID="Label5" runat="server" Font-Bold="True" style="z-index: 1; left: 43px; top: 268px; position: absolute; height: 22px; width: 129px; margin-top: 0px" Text="Middle Initial:"></asp:Label>
-            <asp:Label ID="Label6" runat="server" Font-Bold="True" style="z-index: 1; left: 46px; top: 230px; position: absolute" Text="* First Name:"></asp:Label>
-            <asp:Label ID="lblTech" runat="server" Font-Bold="True" style="z-index: 1; left: 62px; top: 181px; position: absolute; right: 894px" Text="Technician:"></asp:Label>
-            <asp:Label ID="lblEmail" runat="server" Font-Bold="True" style="z-index: 1; left: 105px; top: 346px; position: absolute" Text="EMail:"></asp:Label>
+            <asp:Label ID="lblDept" runat="server" Font-Bold="True" style="z-index: 1; left: 60px; top: 387px; position: absolute; right: 1338px" Text="Department:"></asp:Label>
+            <asp:Label ID="Label5" runat="server" Font-Bold="True" style="z-index: 1; left: 45px; top: 268px; position: absolute; height: 22px; width: 121px; margin-top: 0px" Text="Middle Initial:"></asp:Label>
+            <asp:Label ID="Label6" runat="server" Font-Bold="True" style="z-index: 1; left: 51px; top: 230px; position: absolute" Text="* First Name:"></asp:Label>
+            <asp:Label ID="lblTech" runat="server" Font-Bold="True" style="z-index: 1; left: 66px; top: 184px; position: absolute; " Text="Technician:"></asp:Label>
+            <asp:Label ID="lblEmail" runat="server" Font-Bold="True" style="z-index: 1; left: 108px; top: 346px; position: absolute" Text="EMail:"></asp:Label>
             <asp:TextBox ID="txtFName" runat="server" style="z-index: 1; left: 171px; top: 230px; position: absolute" TabIndex="1"></asp:TextBox>
             <asp:TextBox ID="txtMInitial" runat="server" style="z-index: 1; left: 170px; top: 267px; position: absolute; width: 40px" TabIndex="3"></asp:TextBox>
             <asp:TextBox ID="txtLName" runat="server" style="z-index: 1; left: 171px; top: 307px; position: absolute" TabIndex="4"></asp:TextBox>
