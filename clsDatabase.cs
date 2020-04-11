@@ -560,7 +560,87 @@ namespace Project1_Chad_Jsaicki
                 return intNewTech;
             }
         }
+        //***InsServiceEvent()   
+        public static Int32 InsServiceEvent(DateTime dtDate , int intClient, string strContact, string strPhone)
+        {
+            SqlConnection cnSQL;
+            SqlCommand cmdSQL;
+            Boolean blnErrorOccurred = false;
+            Int32 intRetCode;
+            Int32 intNewTicket = 0;
 
+            cnSQL = AcquireConnection();
+            if (cnSQL == null)
+            {
+                blnErrorOccurred = true;
+            }
+            else
+            {
+                cmdSQL = new SqlCommand();
+                cmdSQL.Connection = cnSQL;
+                cmdSQL.CommandType = CommandType.StoredProcedure;
+                cmdSQL.CommandText = "uspInsertServiceEvent";
+
+                cmdSQL.Parameters.Add(new SqlParameter("@ClientID", SqlDbType.Int));
+                cmdSQL.Parameters["@ClientID"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@ClientID"].Value = intClient;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@EventDate", SqlDbType.DateTime));
+                cmdSQL.Parameters["@EventDate"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@EventDate"].Value = dtDate;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@Contact", SqlDbType.NVarChar, 30));
+                cmdSQL.Parameters["@Contact"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@Contact"].Value = strContact;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@Phone", SqlDbType.NVarChar, 10));
+                cmdSQL.Parameters["@Phone"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@Phone"].Value = strPhone;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@NewTicketID", SqlDbType.Int));
+                cmdSQL.Parameters["@NewTicketID"].Direction = ParameterDirection.Output;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@ErrCode", SqlDbType.Int));
+                cmdSQL.Parameters["@ErrCode"].Direction = ParameterDirection.ReturnValue;
+
+                try
+                {
+                    intRetCode = cmdSQL.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    blnErrorOccurred = true;
+                }
+                finally
+                {
+                    cnSQL.Close();
+                    cnSQL.Dispose();
+                }
+
+                if (!blnErrorOccurred)
+                {
+                    try
+                    {
+                        intNewTicket = Convert.ToInt32(cmdSQL.Parameters["@NewTicketID"].Value);
+                    }
+                    catch (Exception ex)
+                    {
+                        blnErrorOccurred = true;
+                    }
+                }
+                //** Cleanup
+                cmdSQL.Parameters.Clear();
+                cmdSQL.Dispose();
+            }
+            if (blnErrorOccurred)
+            {
+                return -1;
+            }
+            else
+            {
+                return intNewTicket;
+            }
+        }
         public static Int32 SQLUpdateTech(int intTechID, string strLName, string strFName, string strMidIni, string strEmail, string strDept, Int64 intPhone, Decimal decRate)
         {
             SqlConnection cnSQL;

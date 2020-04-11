@@ -23,7 +23,7 @@
             </asp:DropDownList>
             <asp:Label ID="lblPhone" runat="server" style="z-index: 1; left: 36px; top: 286px; position: absolute; height: 22px" Text="* Phone:"></asp:Label>
             <asp:Label ID="lblContact" runat="server" style="z-index: 1; left: 26px; top: 253px; position: absolute; margin-top: 0px" Text="* Contact:"></asp:Label>
-            <asp:Label ID="lblNum" runat="server" style="z-index: 1; left: 346px; top: 186px; position: absolute" Text="Label"></asp:Label>
+            <asp:Label ID="lblDate" runat="server" style="z-index: 1; left: 118px; top: 179px; position: absolute; width: 103px;" Text="Label"></asp:Label>
         </div>
     </form>
 </body>

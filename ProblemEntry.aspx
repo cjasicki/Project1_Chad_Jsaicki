@@ -11,13 +11,13 @@
         <div>
             <asp:Button ID="btnClear" runat="server" style="z-index: 1; left: 234px; top: 435px; position: absolute; width: 151px; height: 39px" Text="Clear" />
             <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 24px; top: 227px; position: absolute" Text="* Problem:"></asp:Label>
-            <asp:Button ID="btnSubmit" runat="server" style="z-index: 1; left: 63px; top: 436px; position: absolute; height: 39px; width: 149px; bottom: 545px" Text="Submit" />
+            <asp:Button ID="btnSubmit" runat="server" style="z-index: 1; left: 63px; top: 436px; position: absolute; height: 39px; width: 149px; bottom: 545px" Text="Submit" OnClick="btnSubmit_Click" />
             <asp:Label ID="lblTic" runat="server" style="z-index: 1; left: 43px; top: 110px; position: absolute; height: 23px" Text="Ticket #:"></asp:Label>
             <asp:Label ID="lblProblem" runat="server" style="z-index: 1; left: 24px; top: 148px; position: absolute" Text="Problem #:"></asp:Label>
             <asp:Label ID="lblProduct" runat="server" style="z-index: 1; left: 30px; top: 189px; position: absolute; height: 18px" Text="* Product:"></asp:Label>
             <asp:Label ID="lblTech" runat="server" style="z-index: 1; left: 56px; top: 347px; position: absolute" Text="*Tech:"></asp:Label>
             <asp:Label ID="lblTicketNum" runat="server" style="z-index: 1; left: 126px; top: 112px; position: absolute; bottom: 886px" Text="Label"></asp:Label>
-            <asp:Label ID="lblProblemNum" runat="server" style="z-index: 1; left: 127px; top: 150px; position: absolute" Text="Label"></asp:Label>
+            <asp:Label ID="lblProblemNum" runat="server" style="z-index: 1; left: 127px; top: 150px; position: absolute; height: 21px;" Text="Label"></asp:Label>
             <asp:DropDownList ID="drpProd" runat="server" style="z-index: 1; left: 125px; top: 185px; position: absolute; width: 137px">
             </asp:DropDownList>
             <asp:TextBox ID="txtProblem" runat="server" style="z-index: 1; left: 122px; top: 225px; position: absolute; height: 101px; width: 441px"></asp:TextBox>

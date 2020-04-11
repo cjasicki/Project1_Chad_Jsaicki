@@ -13,8 +13,16 @@ namespace Project1_Chad_Jsaicki
         Boolean blErrState = false;
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            
             if (!IsPostBack)
             {
+                if (Session["seContacts"] == null)
+                {
+                    
+                    //lblDate.Text = Session["seTicketMumber"].ToString();
+                }
+
                 lblError.Text = "";
                 LoadsClientdrp();
             }
@@ -86,6 +94,19 @@ namespace Project1_Chad_Jsaicki
         {
             DataVal();
             if (blErrState == false){
+                Int32 intNewTicket;
+                int intClientID = Int32.Parse(drpClient.SelectedValue);
+                DateTime stDate = DateTime.Now;
+
+                intNewTicket = clsDatabase.InsServiceEvent(stDate, intClientID, txtContact.Text, txtPhone.Text);
+
+                if (intNewTicket > 0)
+                {
+                    lblError.Text = "New tech was added";
+                    Session["seTicketNumber"] = intNewTicket;
+                   // FormDefault();
+                }
+
                 Response.Redirect("./ProblemEntry.aspx");
             }
         }

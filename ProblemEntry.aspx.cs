@@ -10,15 +10,16 @@ namespace Project1_Chad_Jsaicki
 {
     public partial class ProblemEntry : System.Web.UI.Page
     {
+        int intIcount = 1;
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblProblemNum.Text = intIcount.ToString();
             if (!IsPostBack)
             {
-                if (Session["seContacts"] == null)
-                {
-                    Session["AttemptCount"] = "a";
-                }
-                    lblError.Text = "";
+                lblTicketNum.Text = Session["seTicketNumber"].ToString();
+                lblError.Text = "";
                 LoadsTechdrp();
                 LoadsPoductdrp();
             }
@@ -79,6 +80,15 @@ namespace Project1_Chad_Jsaicki
             protected void btnReturn_Click(object sender, EventArgs e)
         {
             Response.Redirect("./ServiceEvent.aspx");
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+                intIcount++;
+                lblProblemNum.Text = intIcount.ToString();
+    
+
         }
     }
 }

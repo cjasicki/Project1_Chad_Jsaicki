@@ -141,12 +141,12 @@ namespace Project1_Chad_Jsaicki
         protected global::System.Web.UI.WebControls.Label lblContact;
 
         /// <summary>
-        /// lblNum control.
+        /// lblDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNum;
+        protected global::System.Web.UI.WebControls.Label lblDate;
     }
 }
