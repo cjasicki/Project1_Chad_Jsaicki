@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainMenu.aspx" />
+    <Content Include="ProblemEntry.aspx" />
     <Content Include="ServiceEvent.aspx" />
     <Content Include="Technician.aspx" />
     <Content Include="Web.config" />
@@ -80,6 +81,13 @@
     </Compile>
     <Compile Include="MainMenu.aspx.designer.cs">
       <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProblemEntry.aspx.cs">
+      <DependentUpon>ProblemEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProblemEntry.aspx.designer.cs">
+      <DependentUpon>ProblemEntry.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceEvent.aspx.cs">

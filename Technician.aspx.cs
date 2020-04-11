@@ -27,7 +27,7 @@ namespace Project1_Chad_Jsaicki
         private void LoadsTechdrp()
         {
             DataSet dsData;
-            dsData = clsDatabase.gettechs();
+            dsData = clsDatabase.getTechs();
   
             if (dsData == null)
             {

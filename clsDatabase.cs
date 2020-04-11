@@ -160,7 +160,7 @@ namespace Project1_Chad_Jsaicki
         }
 
         //***** gettechs() to populate dropdown list on the form
-        public static DataSet gettechs()
+        public static DataSet getTechs()
         {
             SqlConnection cnSQL;
             SqlCommand cmdSQL;
@@ -180,6 +180,116 @@ namespace Project1_Chad_Jsaicki
                 cmdSQL.Connection = cnSQL;
                 cmdSQL.CommandType = CommandType.StoredProcedure;
                 cmdSQL.CommandText = "uspGetTechnicianList";
+
+                cmdSQL.Parameters.Add(new SqlParameter("@ErrCode", SqlDbType.Int));
+                cmdSQL.Parameters["@ErrCode"].Direction = ParameterDirection.ReturnValue;
+
+                dsSQL = new DataSet();
+                try
+                {
+                    daSQL = new SqlDataAdapter(cmdSQL);
+                    intRetCode = daSQL.Fill(dsSQL);
+                    daSQL.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    blnErrorOccurred = true;
+                    dsSQL.Dispose();
+                }
+                finally
+                {
+                    cmdSQL.Parameters.Clear();
+                    cmdSQL.Dispose();
+                    cnSQL.Close();
+                    cnSQL.Dispose();
+                }
+            }
+
+            if (blnErrorOccurred)
+            {
+                return null;
+            }
+            else
+            {
+                return dsSQL;
+            }
+        }
+        public static DataSet getProduct()
+        {
+            SqlConnection cnSQL;
+            SqlCommand cmdSQL;
+            SqlDataAdapter daSQL;
+            DataSet dsSQL = null;
+            Boolean blnErrorOccurred = false;
+            Int32 intRetCode;
+
+            cnSQL = AcquireConnection();
+            if (cnSQL == null)
+            {
+                return null;
+            }
+            else
+            {
+                cmdSQL = new SqlCommand();
+                cmdSQL.Connection = cnSQL;
+                cmdSQL.CommandType = CommandType.StoredProcedure;
+                cmdSQL.CommandText = "uspGetProducts";
+
+                cmdSQL.Parameters.Add(new SqlParameter("@ErrCode", SqlDbType.Int));
+                cmdSQL.Parameters["@ErrCode"].Direction = ParameterDirection.ReturnValue;
+
+                dsSQL = new DataSet();
+                try
+                {
+                    daSQL = new SqlDataAdapter(cmdSQL);
+                    intRetCode = daSQL.Fill(dsSQL);
+                    daSQL.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    blnErrorOccurred = true;
+                    dsSQL.Dispose();
+                }
+                finally
+                {
+                    cmdSQL.Parameters.Clear();
+                    cmdSQL.Dispose();
+                    cnSQL.Close();
+                    cnSQL.Dispose();
+                }
+            }
+
+            if (blnErrorOccurred)
+            {
+                return null;
+            }
+            else
+            {
+                return dsSQL;
+            }
+        }
+
+
+        public static DataSet getClients()
+        {
+            SqlConnection cnSQL;
+            SqlCommand cmdSQL;
+            SqlDataAdapter daSQL;
+            DataSet dsSQL = null;
+            Boolean blnErrorOccurred = false;
+            Int32 intRetCode;
+
+            cnSQL = AcquireConnection();
+            if (cnSQL == null)
+            {
+                return null;
+            }
+            else
+            {
+                cmdSQL = new SqlCommand();
+                cmdSQL.Connection = cnSQL;
+                cmdSQL.CommandType = CommandType.StoredProcedure;
+                cmdSQL.CommandText = "uspGetClientList";
 
                 cmdSQL.Parameters.Add(new SqlParameter("@ErrCode", SqlDbType.Int));
                 cmdSQL.Parameters["@ErrCode"].Direction = ParameterDirection.ReturnValue;
