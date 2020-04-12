@@ -641,6 +641,133 @@ namespace Project1_Chad_Jsaicki
                 return intNewTicket;
             }
         }
+
+        public static Int32 InsProblemEvent(int intTicketID, int IncidentNo, string strProbDesc, int intTechID, string strProductID)
+        {
+            SqlConnection cnSQL;
+            SqlCommand cmdSQL;
+            Boolean blnErrorOccurred = false;
+            Int32 intRetCode;
+
+            cnSQL = AcquireConnection();
+            if (cnSQL == null)
+            {
+                blnErrorOccurred = true;
+            }
+            else
+            {
+                cmdSQL = new SqlCommand();
+                cmdSQL.Connection = cnSQL;
+                cmdSQL.CommandType = CommandType.StoredProcedure;
+                cmdSQL.CommandText = "uspInsertProblem";
+
+                cmdSQL.Parameters.Add(new SqlParameter("@TicketID", SqlDbType.Int));
+                cmdSQL.Parameters["@TicketID"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@TicketID"].Value = intTicketID;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@IncidentNo", SqlDbType.Int));
+                cmdSQL.Parameters["@IncidentNo"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@IncidentNo"].Value = IncidentNo;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@ProbDesc", SqlDbType.NVarChar, 500));
+                cmdSQL.Parameters["@ProbDesc"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@ProbDesc"].Value = strProbDesc;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@TechID", SqlDbType.Int));
+                cmdSQL.Parameters["@TechID"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@TechID"].Value = intTechID;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@ProductID", SqlDbType.NVarChar, 10));
+                cmdSQL.Parameters["@ProductID"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@ProductID"].Value = strProductID;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@ErrCode", SqlDbType.Int));
+                cmdSQL.Parameters["@ErrCode"].Direction = ParameterDirection.ReturnValue;
+
+                try
+                {
+                    intRetCode = cmdSQL.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    blnErrorOccurred = true;
+                }
+                finally
+                {
+                    cnSQL.Close();
+                    cnSQL.Dispose();
+                }
+
+                //** Cleanup
+                cmdSQL.Parameters.Clear();
+                cmdSQL.Dispose();
+            }
+            if (blnErrorOccurred)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public static DataSet getOpenProblems()
+        {
+            SqlConnection cnSQL;
+            SqlCommand cmdSQL;
+            SqlDataAdapter daSQL;
+            DataSet dsSQL = null;
+            Boolean blnErrorOccurred = false;
+            Int32 intRetCode;
+
+            cnSQL = AcquireConnection();
+            if (cnSQL == null)
+            {
+                return null;
+            }
+            else
+            {
+                cmdSQL = new SqlCommand();
+                cmdSQL.Connection = cnSQL;
+                cmdSQL.CommandType = CommandType.StoredProcedure;
+                cmdSQL.CommandText = "uspGetOpenProblems";
+
+                cmdSQL.Parameters.Add(new SqlParameter("@ErrCode", SqlDbType.Int));
+                cmdSQL.Parameters["@ErrCode"].Direction = ParameterDirection.ReturnValue;
+
+                dsSQL = new DataSet();
+                try
+                {
+                    daSQL = new SqlDataAdapter(cmdSQL);
+                    intRetCode = daSQL.Fill(dsSQL);
+                    daSQL.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    blnErrorOccurred = true;
+                    dsSQL.Dispose();
+                }
+                finally
+                {
+                    cmdSQL.Parameters.Clear();
+                    cmdSQL.Dispose();
+                    cnSQL.Close();
+                    cnSQL.Dispose();
+                }
+            }
+
+            if (blnErrorOccurred)
+            {
+                return null;
+            }
+            else
+            {
+                return dsSQL;
+            }
+        }
+
+
         public static Int32 SQLUpdateTech(int intTechID, string strLName, string strFName, string strMidIni, string strEmail, string strDept, Int64 intPhone, Decimal decRate)
         {
             SqlConnection cnSQL;

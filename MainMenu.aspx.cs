@@ -11,7 +11,7 @@ namespace Project1_Chad_Jsaicki
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["seError"] = "";
         }
 
         protected void btnServiceEvent_Click(object sender, EventArgs e)
@@ -22,6 +22,11 @@ namespace Project1_Chad_Jsaicki
         protected void btnTechnician_Click(object sender, EventArgs e)
         {
             Response.Redirect("./Technician.aspx");
+        }
+
+        protected void btnProblem_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./ProblemList.aspx");
         }
     }
 }

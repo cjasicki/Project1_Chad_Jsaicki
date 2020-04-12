@@ -13,19 +13,14 @@ namespace Project1_Chad_Jsaicki
         Boolean blErrState = false;
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblError.Text = "";
             lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            
+
             if (!IsPostBack)
             {
-                if (Session["seContacts"] == null)
-                {
-                    
-                    //lblDate.Text = Session["seTicketMumber"].ToString();
-                }
-
-                lblError.Text = "";
                 LoadsClientdrp();
             }
+
         }
         private void LoadsClientdrp()
         {
@@ -55,29 +50,37 @@ namespace Project1_Chad_Jsaicki
         }
         private void DataVal()
         {
-            
-            Int64 intPhone = 0;
-            if (!blErrState)
+            Int64 intPhone;
+
+            if (drpClient.SelectedValue == "0")
             {
-                if (Int64.TryParse(txtPhone.Text, out intPhone))
-                {
-                    lblError.Text = "";
-                    blErrState = false;
-                    if (txtPhone.Text.Length != 10 && !txtPhone.Text.StartsWith("0"))
-                    {
-                        lblError.Text = "Phone Number Must have 10 digits and can't be Null!!!";
-                        txtPhone.Focus();
-                        blErrState = true;
-                    }
-                    else
-                    {
-                        lblError.Text = "";
-                        blErrState = false;
-                    }
-
-
-                }
+                blErrState = true;
+                lblError.Text = "Please slect a valid Client in the dropdown menu";
             }
+            else if (string.IsNullOrEmpty(txtContact.Text))
+            {
+                blErrState = true;
+                lblError.Text = "Contact Name is requred, please enter an Contact";
+            }
+            else if (txtPhone.Text.Length != 10 && !txtPhone.Text.StartsWith("0"))
+            {
+                lblError.Text = "Phone Number Must have 10 digits and can't be Null!!!";
+                txtPhone.Text = "";
+                txtPhone.Focus();
+                blErrState = true;
+            }
+            else if (!Int64.TryParse(txtPhone.Text, out intPhone))
+            {
+                lblError.Text = "Phone Number must be all numbers";
+                txtPhone.Text = "";
+                txtPhone.Focus();
+                blErrState = true;
+            }
+            else
+            {
+                lblError.Text = "";
+                blErrState = false;
+            }           
         }
 
         protected void btnReturn_Click(object sender, EventArgs e)
@@ -102,7 +105,7 @@ namespace Project1_Chad_Jsaicki
 
                 if (intNewTicket > 0)
                 {
-                    lblError.Text = "New tech was added";
+                    lblError.Text = "New Event was added";
                     Session["seTicketNumber"] = intNewTicket;
                    // FormDefault();
                 }

@@ -18,7 +18,7 @@
             <asp:Button ID="btnNext" runat="server" Font-Bold="True" style="z-index: 1; left: 57px; top: 386px; position: absolute; width: 124px; right: 873px" Text="Next" OnClick="btnNext_Click" />
             <asp:Label ID="Label2" runat="server" style="z-index: 1; left: 15px; top: 177px; position: absolute; width: 115px" Text="Event Date:"></asp:Label>
             <asp:TextBox ID="txtPhone" runat="server" style="z-index: 1; left: 118px; top: 284px; position: absolute"></asp:TextBox>
-            <asp:TextBox ID="txtContact" runat="server" style="z-index: 1; left: 118px; top: 252px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtContact" runat="server" style="z-index: 1; left: 117px; top: 252px; position: absolute"></asp:TextBox>
             <asp:DropDownList ID="drpClient" AutoPostBack="true" runat="server" style="z-index: 1; left: 117px; top: 216px; position: absolute; height: 20px; width: 164px" OnSelectedIndexChanged="drpClient_SelectedIndexChanged">
             </asp:DropDownList>
             <asp:Label ID="lblPhone" runat="server" style="z-index: 1; left: 36px; top: 286px; position: absolute; height: 22px" Text="* Phone:"></asp:Label>
