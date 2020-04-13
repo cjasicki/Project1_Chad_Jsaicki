@@ -445,6 +445,152 @@ namespace Project1_Chad_Jsaicki
             }
         }
 
+        //***** InsertResolution()
+        public static Int32 InsertResolution(int intTicketID, int intIncidentNo, int intResNo, string strResDesc, DateTime dtDateFix, DateTime dtDateOnsite, int intTechID, Decimal decHours, Decimal decMileage, Decimal decCostMiles, Decimal decSupplies, Decimal decMisc)
+        {
+            SqlConnection cnSQL;
+            SqlCommand cmdSQL;
+            Boolean blnErrorOccurred = false;
+            Int32 intRetCode = 0;
+
+            cnSQL = AcquireConnection();
+            if (cnSQL == null)
+            {
+                blnErrorOccurred = true;
+            }
+            else
+            {
+                cmdSQL = new SqlCommand();
+                cmdSQL.Connection = cnSQL;
+                cmdSQL.CommandType = CommandType.StoredProcedure;
+                cmdSQL.CommandText = "uspInsertResolution";
+
+                cmdSQL.Parameters.Add(new SqlParameter("@TicketID", SqlDbType.Int));
+                cmdSQL.Parameters["@TicketID"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@TicketID"].Value = intTicketID;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@IncidentNo", SqlDbType.Int));
+                cmdSQL.Parameters["@IncidentNo"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@IncidentNo"].Value = intIncidentNo;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@ResNo", SqlDbType.Int));
+                cmdSQL.Parameters["@ResNo"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@ResNo"].Value = intResNo;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@ResDesc", SqlDbType.NVarChar, 500));
+                cmdSQL.Parameters["@ResDesc"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@ResDesc"].Value = strResDesc;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@DateFix", SqlDbType.DateTime));
+                cmdSQL.Parameters["@DateFix"].Direction = ParameterDirection.Input;  
+                if (dtDateFix.ToString() == "1/1/0001 12:00:00 AM")
+                {
+                    cmdSQL.Parameters["@DateFix"].Value = DBNull.Value;
+                    
+                }
+                else
+                {
+                    cmdSQL.Parameters["@DateFix"].Value = dtDateFix;
+                }
+
+                cmdSQL.Parameters.Add(new SqlParameter("@DateOnsite", SqlDbType.DateTime));
+                cmdSQL.Parameters["@DateOnsite"].Direction = ParameterDirection.Input;
+                if (dtDateOnsite.ToString() == "1/1/0001 12:00:00 AM")
+                {
+                    cmdSQL.Parameters["@DateOnsite"].Value = DBNull.Value;
+                    
+                }
+                else
+                {
+                    cmdSQL.Parameters["@DateOnsite"].Value = dtDateOnsite;
+                }
+ 
+                cmdSQL.Parameters.Add(new SqlParameter("@TechID", SqlDbType.Int));
+                cmdSQL.Parameters["@TechID"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@TechID"].Value = intTechID;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@Hours", SqlDbType.Decimal));
+                cmdSQL.Parameters["@Hours"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@Hours"].Value = decHours;
+
+                cmdSQL.Parameters.Add(new SqlParameter("@Mileage", SqlDbType.Decimal));
+                cmdSQL.Parameters["@Mileage"].Direction = ParameterDirection.Input;
+                if (decMileage.ToString() == "0")
+                {
+                    cmdSQL.Parameters["@Mileage"].Value = DBNull.Value;
+
+                }
+                else
+                {
+                    cmdSQL.Parameters["@Mileage"].Value = decMileage;
+                }
+
+                cmdSQL.Parameters.Add(new SqlParameter("@CostMiles", SqlDbType.Decimal));
+                cmdSQL.Parameters["@CostMiles"].Direction = ParameterDirection.Input;
+                if (decCostMiles.ToString() == "0")
+                {
+                    cmdSQL.Parameters["@CostMiles"].Value = DBNull.Value;
+
+                }
+                else
+                {
+                    cmdSQL.Parameters["@CostMiles"].Value = decCostMiles;
+                }
+
+                cmdSQL.Parameters.Add(new SqlParameter("@Supplies", SqlDbType.Decimal));
+                cmdSQL.Parameters["@Supplies"].Direction = ParameterDirection.Input;
+                if (decSupplies.ToString() == "0")
+                {
+                    cmdSQL.Parameters["@Supplies"].Value = DBNull.Value;
+
+                }
+                else
+                {
+                    cmdSQL.Parameters["@Supplies"].Value = decSupplies;
+                }
+
+                cmdSQL.Parameters.Add(new SqlParameter("@Misc", SqlDbType.Decimal));
+                cmdSQL.Parameters["@Misc"].Direction = ParameterDirection.Input;
+                if (decMisc.ToString() == "0")
+                {
+                    cmdSQL.Parameters["@Misc"].Value = DBNull.Value;
+
+                }
+                else
+                {
+                    cmdSQL.Parameters["@Misc"].Value = decMisc;
+                }
+
+                cmdSQL.Parameters.Add(new SqlParameter("@ErrCode", SqlDbType.Int));
+                cmdSQL.Parameters["@ErrCode"].Direction = ParameterDirection.ReturnValue;
+
+                try
+                {
+                    intRetCode = cmdSQL.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    blnErrorOccurred = true;
+                }
+                finally
+                {
+                    cmdSQL.Parameters.Clear();
+                    cmdSQL.Dispose();
+                    cnSQL.Close();
+                    cnSQL.Dispose();
+                }
+            }
+
+            if (blnErrorOccurred)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         //***INserttech()   
         public static Int32 InsertTech(string strLName, string strFName, string strMidIni, string strEmail, string strDept, Int64 intPhone, Decimal decRate)
         {

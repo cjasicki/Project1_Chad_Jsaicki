@@ -24,7 +24,6 @@
             
             </asp:GridView>
         </div>
-        <asp:TextBox ID="TextBox" runat="server" style="z-index: 1; left: 325px; top: 639px; position: absolute"></asp:TextBox>
     </form>
 </body>
 </html>

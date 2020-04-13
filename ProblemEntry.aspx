@@ -25,8 +25,8 @@
             <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Overline="False" Font-Size="XX-Large" Font-Underline="True" ForeColor="Red" style="z-index: 1; left: 186px; top: 35px; position: absolute; height: 71px; width: 410px" Text="Problem Entry"></asp:Label>
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 73px; top: 577px; position: absolute; width: 298px" Text="Error"></asp:Label>
             <asp:TextBox ID="txtProblem1" runat="server" style="z-index: 1; left: 125px; top: 229px; position: absolute; height: 96px; width: 441px" TextMode="MultiLine"></asp:TextBox>
+            <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" style="z-index: 1; left: 64px; position: absolute; height: 42px; width: 320px; top: 491px; right: 1272px; margin-bottom: 0px" Text="Return to Service" />
         </div>
-        <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" style="z-index: 1; left: 64px; position: absolute; height: 42px; width: 320px; top: 491px; right: 1272px; margin-bottom: 0px" Text="Return to Service" />
     </form>
 </body>
 </html>

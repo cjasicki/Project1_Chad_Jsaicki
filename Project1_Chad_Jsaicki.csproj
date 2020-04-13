@@ -70,6 +70,7 @@
     <Content Include="MainMenu.aspx" />
     <Content Include="ProblemEntry.aspx" />
     <Content Include="ProblemList.aspx" />
+    <Content Include="Resolution.aspx" />
     <Content Include="ServiceEvent.aspx" />
     <Content Include="Technician.aspx" />
     <Content Include="Web.config" />
@@ -98,6 +99,13 @@
       <DependentUpon>ProblemList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resolution.aspx.cs">
+      <DependentUpon>Resolution.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resolution.aspx.designer.cs">
+      <DependentUpon>Resolution.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ServiceEvent.aspx.cs">
       <DependentUpon>ServiceEvent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
