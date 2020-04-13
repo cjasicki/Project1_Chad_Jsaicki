@@ -33,6 +33,15 @@ namespace Project1_Chad_Jsaicki
         protected global::System.Web.UI.WebControls.Label lblTitle;
 
         /// <summary>
+        /// lblTechRate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTechRate;
+
+        /// <summary>
         /// lblError control.
         /// </summary>
         /// <remarks>
@@ -301,6 +310,15 @@ namespace Project1_Chad_Jsaicki
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl1;
+
+        /// <summary>
+        /// lblTechRateLable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTechRateLable;
 
         /// <summary>
         /// ckb_NoCharge control.

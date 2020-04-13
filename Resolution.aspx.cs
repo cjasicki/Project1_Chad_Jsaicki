@@ -13,12 +13,15 @@ namespace Project1_Chad_Jsaicki
     {
         Boolean blErrState = false;
         ArrayList list = new ArrayList();
+        Decimal decTechRate;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
+                lblError.Text = "";
+                txtRes.Focus();
                 lblTicketNum.Text = Session["seTicketID"].ToString();
                 lblProblemNum.Text = Session["seIncidentNo"].ToString();
                 lblResNum.Text = "1";
@@ -57,9 +60,17 @@ namespace Project1_Chad_Jsaicki
         {
 
             DataVal();
+            //TechRate();
             WriteDB();
             Clear();     
 
+        }
+
+        private void TechRate()
+        {
+            string strTechID = drpTech.SelectedValue.ToString();
+            DataSet dsTech = clsDatabase.GetTechInfoByID(strTechID);
+            decTechRate = Convert.ToDecimal(dsTech.Tables[0].Rows[0]["HRate"]);
         }
 
         private void WriteDB()
@@ -82,8 +93,8 @@ namespace Project1_Chad_Jsaicki
                 DateTime dtDateRep = Convert.ToDateTime(list[5]);
                 decimal DecMIsc = Convert.ToDecimal(list[4]);
                 decimal DecSupplies = Convert.ToDecimal(list[3]);
-                decimal DecMiles = Convert.ToDecimal(list[1]);
-                decimal decCostMiles = Convert.ToDecimal(null);
+                decimal DecMiles = Convert.ToDecimal(null);   //more here 
+                decimal decCostMiles = Convert.ToDecimal(list[1]);
                 decimal intHours = Convert.ToDecimal(list[0]);
                 int intTech = Convert.ToInt32(drpTech.SelectedValue);
                 int intResNum = Convert.ToInt32(lblResNum.Text);
@@ -273,6 +284,36 @@ namespace Project1_Chad_Jsaicki
         protected void btnReturn_Click(object sender, EventArgs e)
         {
             Response.Redirect("./ProblemList.aspx");
+        }
+
+        protected void ckb_NoCharge_CheckedChanged(object sender, EventArgs e)
+        {
+   
+                if (ckb_NoCharge.Checked == false)
+                {
+                    TechRate();
+                    lblTechRate.Text = decTechRate.ToString("C");
+                }
+                else
+                {
+                    lblTechRate.Text = "0";
+                }
+           
+        }
+
+        protected void drpTech_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+                if (ckb_NoCharge.Checked == false)
+                {
+                    TechRate();
+                    lblTechRate.Text = decTechRate.ToString("C");
+                }
+                else
+                {
+                    lblTechRate.Text = "0";
+                }
+        
         }
     }
 }

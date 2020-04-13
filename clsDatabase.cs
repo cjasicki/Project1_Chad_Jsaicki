@@ -97,7 +97,7 @@ namespace Project1_Chad_Jsaicki
         }
 
         //***** GetProductByID()
-        public static DataSet GetTechInfoByID(string strProdID)
+        public static DataSet GetTechInfoByID(string strProdID)  
         {
             SqlConnection cnSQL;
             SqlCommand cmdSQL;
@@ -106,8 +106,8 @@ namespace Project1_Chad_Jsaicki
             Boolean blnErrorOccurred = false;
             Int32 intRetCode;
 
-            if (strProdID.Trim().Length > 0)
-            {
+           if (strProdID.Trim().Length > 0)
+           {
                 cnSQL = AcquireConnection();
                 if (cnSQL == null)
                 {
@@ -324,6 +324,7 @@ namespace Project1_Chad_Jsaicki
                 return dsSQL;
             }
         }
+
 
         //***** DeleteTech()
         public static Int32 DeleteTech(String strTechID)
