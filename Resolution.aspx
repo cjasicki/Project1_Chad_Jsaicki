@@ -11,7 +11,7 @@
         <div>
             <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Font-Underline="True" style="z-index: 1; left: 159px; top: 35px; position: absolute" Text="Resolution Entry"></asp:Label>
             <asp:Label ID="lblTechRate" runat="server" style="z-index: 1; top: 428px; position: absolute; left: 468px" Text="Select a Tech"></asp:Label>
-            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 83px; top: 713px; position: absolute" Text="Error" ForeColor="Red"></asp:Label>
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 325px; top: 651px; position: absolute" Text="Error" ForeColor="Red"></asp:Label>
             <asp:Label ID="lblTicNum" runat="server" style="z-index: 1; left: 103px; top: 172px; position: absolute" Text="Ticket#:"></asp:Label>
             <asp:TextBox ID="txtRes" runat="server" style="z-index: 1; left: 170px; top: 297px; position: absolute; height: 98px; width: 412px" TextMode="MultiLine"></asp:TextBox>
             <asp:Label ID="lblProNum" runat="server" style="z-index: 1; left: 83px; top: 213px; position: absolute" Text="Problem#:"></asp:Label>
@@ -25,7 +25,7 @@
             <asp:Label ID="lblMics" runat="server" style="z-index: 1; left: 319px; top: 525px; position: absolute" Text="Misc,:"></asp:Label>
             <asp:Label ID="lblCM" runat="server" style="z-index: 1; left: 490px; top: 480px; position: absolute; margin-bottom: 113px" Text="Cost Miles:"></asp:Label>        
             <asp:Label ID="Label3" runat="server" style="z-index: 1; left: 47px; top: 607px; position: absolute; height: 23px" Text="Date Onsite:"></asp:Label>
-            <asp:Label ID="lblReq" runat="server" ForeColor="Black" style="z-index: 1; left: 78px; top: 664px; position: absolute; height: 21px" Text="* Indicates required fields"></asp:Label>
+            <asp:Label ID="lblReq" runat="server" ForeColor="Black" style="z-index: 1; left: 74px; top: 652px; position: absolute; height: 21px" Text="* Indicates required fields"></asp:Label>
             <asp:TextBox ID="txtMiles" runat="server" style="z-index: 1; left: 390px; top: 481px; position: absolute; width: 50px; height: 18px; " TabIndex="3"></asp:TextBox>
             <asp:TextBox ID="txtMisc" runat="server" style="z-index: 1; left: 388px; top: 522px; position: absolute; width: 50px; height: 18px" TabIndex="6"></asp:TextBox>
             <asp:TextBox ID="txtDateOnsite" runat="server" style="z-index: 1; left: 173px; top: 600px; position: absolute; width: 170px; height: 18px" TextMode="DateTimeLocal" TabIndex="8"></asp:TextBox>
@@ -35,8 +35,8 @@
             <asp:Label ID="lblTicketNum" runat="server" style="z-index: 1; left: 181px; top: 172px; position: absolute" Text="Label"></asp:Label>
             <asp:Label ID="lblProblemNum" runat="server" style="z-index: 1; left: 181px; top: 212px; position: absolute" Text="Label"></asp:Label>
             <asp:Label ID="lblResNum" runat="server" style="z-index: 1; left: 181px; top: 251px; position: absolute" Text="Label"></asp:Label>
-            <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" style="z-index: 1; left: 323px; top: 744px; position: absolute; width: 111px; height: 30px" Text="Clear" TabIndex="10" />
-            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" style="z-index: 1; left: 173px; top: 745px; position: absolute; width: 112px; height: 31px; right: 1582px;" Text="Submint" AccessKey="s" TabIndex="9" />
+            <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" style="z-index: 1; left: 251px; top: 695px; position: absolute; width: 111px; height: 30px" Text="Clear" TabIndex="10" />
+            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" style="z-index: 1; left: 96px; top: 694px; position: absolute; width: 112px; height: 31px; right: 1178px;" Text="Submint" AccessKey="s" TabIndex="9" />
 &nbsp;<asp:DropDownList ID="drpTech" runat="server" style="z-index: 1; left: 172px; top: 429px; position: absolute; width: 149px" AutoPostBack="True" OnSelectedIndexChanged="drpTech_SelectedIndexChanged" TabIndex="1">
             </asp:DropDownList>
             <asp:TextBox ID="txtHours" runat="server" AccessKey="h" style="z-index: 1; left: 173px; top: 478px; position: absolute; width: 56px; height: 24px" TabIndex="2"></asp:TextBox>

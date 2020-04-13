@@ -101,8 +101,9 @@ namespace Project1_Chad_Jsaicki
                 int intTicketNum = Convert.ToInt32(lblTicketNum.Text);
                 int intProblemNum = Convert.ToInt32(lblProblemNum.Text);
                 string strRes = txtRes.Text;
-
-                int strResult = clsDatabase.InsertResolution(intTicketNum, intProblemNum, intResNum, strRes, dtDateRep, dtOnsite, intTech, intHours, DecMiles, decCostMiles, DecSupplies, DecMIsc);
+                int intCharge = Convert.ToInt32(ckb_NoCharge.Checked);
+                
+                int strResult = clsDatabase.InsertResolution(intTicketNum, intProblemNum, intResNum, strRes, dtDateRep, dtOnsite, intTech, intHours, DecMiles, decCostMiles, DecSupplies, DecMIsc, intCharge);
 
                 if (strResult == 0)
                 {
@@ -279,6 +280,7 @@ namespace Project1_Chad_Jsaicki
             txtMisc.Text = "";
             txtDateRep.Text = "";
             txtDateOnsite.Text = "";
+            ckb_NoCharge.Checked = false;
         }
 
         protected void btnReturn_Click(object sender, EventArgs e)

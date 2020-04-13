@@ -447,7 +447,7 @@ namespace Project1_Chad_Jsaicki
         }
 
         //***** InsertResolution()
-        public static Int32 InsertResolution(int intTicketID, int intIncidentNo, int intResNo, string strResDesc, DateTime dtDateFix, DateTime dtDateOnsite, int intTechID, Decimal decHours, Decimal decMileage, Decimal decCostMiles, Decimal decSupplies, Decimal decMisc)
+        public static Int32 InsertResolution(int intTicketID, int intIncidentNo, int intResNo, string strResDesc, DateTime dtDateFix, DateTime dtDateOnsite, int intTechID, Decimal decHours, Decimal decMileage, Decimal decCostMiles, Decimal decSupplies, Decimal decMisc, int intNoCharge)
         {
             SqlConnection cnSQL;
             SqlCommand cmdSQL;
@@ -561,6 +561,10 @@ namespace Project1_Chad_Jsaicki
                 {
                     cmdSQL.Parameters["@Misc"].Value = decMisc;
                 }
+                
+                cmdSQL.Parameters.Add(new SqlParameter("@NoCharge", SqlDbType.Int));
+                cmdSQL.Parameters["@NoCharge"].Direction = ParameterDirection.Input;
+                cmdSQL.Parameters["@NoCharge"].Value = intNoCharge;
 
                 cmdSQL.Parameters.Add(new SqlParameter("@ErrCode", SqlDbType.Int));
                 cmdSQL.Parameters["@ErrCode"].Direction = ParameterDirection.ReturnValue;
