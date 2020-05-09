@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MySite1.Master" AutoEventWireup="true" CodeBehind="RepSelection.aspx.cs" Inherits="Project1_Chad_Jsaicki.WebForm2" %>
+﻿<%@ Page Title="Select Report" Language="C#" MasterPageFile="~/MySite1.Master" AutoEventWireup="true" CodeBehind="RepSelection.aspx.cs" Inherits="Project1_Chad_Jsaicki.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
