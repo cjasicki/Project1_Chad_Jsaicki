@@ -70,10 +70,13 @@
     <Content Include="MainMenu.aspx" />
     <Content Include="ProblemEntry.aspx" />
     <Content Include="ProblemList.aspx" />
+    <Content Include="Project4.css" />
     <Content Include="Resolution.aspx" />
     <Content Include="ServiceEvent.aspx" />
     <Content Include="Technician.aspx" />
     <Content Include="Web.config" />
+    <Content Include="RepDisplay.aspx" />
+    <Content Include="RepSelection.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDatabase.cs" />
@@ -83,6 +86,13 @@
     </Compile>
     <Compile Include="MainMenu.aspx.designer.cs">
       <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MySite1.Master.cs">
+      <DependentUpon>MySite1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MySite1.Master.designer.cs">
+      <DependentUpon>MySite1.Master</DependentUpon>
     </Compile>
     <Compile Include="ProblemEntry.aspx.cs">
       <DependentUpon>ProblemEntry.aspx</DependentUpon>
@@ -120,8 +130,23 @@
     <Compile Include="Technician.aspx.designer.cs">
       <DependentUpon>Technician.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RepDisplay.aspx.cs">
+      <DependentUpon>RepDisplay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RepDisplay.aspx.designer.cs">
+      <DependentUpon>RepDisplay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RepSelection.aspx.cs">
+      <DependentUpon>RepSelection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RepSelection.aspx.designer.cs">
+      <DependentUpon>RepSelection.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MySite1.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

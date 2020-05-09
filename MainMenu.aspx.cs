@@ -28,5 +28,10 @@ namespace Project1_Chad_Jsaicki
         {
             Response.Redirect("./ProblemList.aspx");
         }
+
+        protected void btnReport_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./RepSelection.aspx");
+        }
     }
 }

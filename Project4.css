@@ -1,0 +1,30 @@
+﻿body {
+    background-color: azure;
+}
+
+.cont {
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+}
+
+div {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.R1{
+    color:red;
+}
+
+.B1 {
+    font-weight: bold;
+}
+
+.grid {
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
