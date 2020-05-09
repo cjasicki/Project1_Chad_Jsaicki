@@ -14,10 +14,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
         <div Class="cont">
-            <asp:Label ID="lblClass" runat="server" Text="CCIS 2645"/>
-            <br />
-            <p><%=DateTime.Now.ToString("dd MMM yyyy hh:mm") %></p>
+            <asp:Label ID="lblClass" runat="server" Text="Chad Jasicki"/>
+            <p>CCIS 2645 - <%=DateTime.Now.ToString("dd MMM yyyy hh:mm") %></p>
         </div>
         <div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">

@@ -14,12 +14,24 @@ div {
     margin-right: auto;
 }
 
+.lblClass{
+
+
+}
+.lbl1 {
+    color: firebrick;
+    font-family: Copperplate,Copperplate Gothic Light,fantasy;
+    font-weight: bold;
+    font-size: larger;
+}
 .R1{
     color:red;
+
 }
 
 .B1 {
     font-weight: bold;
+    font-family: Arial Black,Arial Bold,Gadget,sans-serif;
 }
 
 /* Something I found on the internet, all credit goes to atashbahar.com http://atashbahar.com/post/2009-01-23-aspnet-gridview-makeover-using-css */
