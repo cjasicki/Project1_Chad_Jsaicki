@@ -9,7 +9,12 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <br />
-        <asp:GridView ID="gvReport" CssClass="grid" runat="server" style="z-index: 1; left: auto; top: auto; position:center; height:auto; width:auto">
+        <asp:GridView ID="gvReport" runat="server" style="z-index: 1; left: auto; top: auto; position:center; height:auto; width:auto"
+                GridLines="None"
+    AllowPaging="true"
+    CssClass="mGrid"
+    PagerStyle-CssClass="pgr"
+    AlternatingRowStyle-CssClass="alt">
     </asp:GridView>
         </div>
 </asp:Content>

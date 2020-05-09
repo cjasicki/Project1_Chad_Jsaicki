@@ -8,7 +8,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <br />
-      <asp:Label ID="lblform" runat="server" Text="Please select something "></asp:Label>
+      <asp:Label ID="lblform" runat="server" Text="Please select report to run "></asp:Label>
     <asp:DropDownList ID="lstReport" runat="server" OnSelectedIndexChanged="lstReport_SelectedIndexChanged" style="z-index: 1; left:auto; top:auto; position:center; width:auto;" CssClass="ddl">
     </asp:DropDownList>
         <br />

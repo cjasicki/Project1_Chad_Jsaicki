@@ -67,6 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\grd_alt.png" />
+    <Content Include="Images\grd_head.png" />
+    <Content Include="Images\grd_pgr.png" />
     <Content Include="MainMenu.aspx" />
     <Content Include="ProblemEntry.aspx" />
     <Content Include="ProblemList.aspx" />
