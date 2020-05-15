@@ -4,15 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" href="Project4.css"  type="text/css" />
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
         <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Font-Size="XX-Large" style="z-index: 1; left: 226px; top: 40px; position: absolute" Text="Open Problem List"></asp:Label>
         <div>
-            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 45px; top: 88px; position: absolute" Text="Error Label"></asp:Label>
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 45px; top: 88px; position: absolute" Text=""></asp:Label>
             <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" style="z-index: 1; left: 44px; top: 126px; position: absolute" Text="Return to Main Menu" />
-            <asp:GridView ID="gvProblemList" runat="server" AutoGenerateColumns="true"  style="z-index: 1; left: 23px; top: 188px; position: absolute; height: 152px; width: 753px" OnRowCommand="gvProblemList_RowCommand">
+            <asp:GridView ID="gvProblemList" runat="server" AutoGenerateColumns="true"  style="z-index: 1; left: 23px; top: 188px; position: absolute; height: 152px; width: 753px" OnRowCommand="gvProblemList_RowCommand"                 GridLines="None"
+    AllowPaging="true"
+    CssClass="mGrid"
+    PagerStyle-CssClass="pgr"
+    AlternatingRowStyle-CssClass="alt">
             <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
